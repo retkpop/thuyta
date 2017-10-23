@@ -1,0 +1,115 @@
+@font-face {
+    font-family: 'Conv_UTM Swiss CondensedBold';
+    src: local('Conv_UTM Swiss CondensedBold'), url('fonts/UTM Swiss CondensedBold.woff') format('woff'), url('fonts/UTM Swiss CondensedBold.ttf') format('truetype'), url('fonts/UTM Swiss CondensedBold.svg') format('svg'), url('fonts/UTM Swiss CondensedBold.eot');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Conv_UTM Swiss Condensed';
+    src: local('Conv_UTM Swiss Condensed'), url('fonts/UTM Swiss Condensed.woff') format('woff'), url('fonts/UTM Swiss Condensed.ttf') format('truetype'), url('fonts/UTM Swiss Condensed.svg') format('svg'), url('fonts/UTM Swiss Condensed.eot');
+    font-weight: normal;
+    font-style: normal;
+}
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&subset=vietnamese');
+
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #444;
+}
+.swiss {
+    font-family: 'Conv_UTM Swiss Condensed';
+}
+.swissBold {
+    font-family: 'Conv_UTM Swiss CondensedBold';
+}
+.header {
+    position: absolute;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+}
+.header .main-header .logo {
+    float: left;
+}
+.header .main-header .navabar_HD {
+    float: right;
+}
+  @media (max-width: 543px) {
+    .navabar_HD .main-menu {
+      display: inline-block;
+      background: #4f4f4f;
+      background: -webkit-linear-gradient(left, rgba(255, 68, 0, 0.81) 10%, #2bae00 100%);
+      background: -moz-linear-gradient(left, rgba(255, 68, 0, 0.81) 10%, #2bae00 100%);
+      background: -o-linear-gradient(left, rgba(255, 68, 0, 0.81) 10%, #2bae00 100%);
+      background: -ms-linear-gradient(left, rgba(255, 68, 0, 0.81) 10%, #2bae00 100%);
+      background: linear-gradient(left, rgba(255, 68, 0, 0.81) 10%, #2bae00 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='rgba(255, 68, 0, 0.81)', endColorstr='rgb(43, 174, 0)', GradientType=1);
+      position: fixed;
+      top: 35px;
+      left: 0;
+      z-index: 999;
+      transform: translate(-280px, 0);
+      height: 100%;
+    }
+  }
+  .navabar_HD .main-menu ul {
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+  }
+  @media (max-width: 543px) {
+    .navabar_HD .main-menu ul {
+      display: inline-block;
+    }
+  }
+  .navabar_HD .main-menu ul li {
+    float: left;
+  }
+  .navabar_HD .main-menu ul li .nav-sub ul {
+    background: #fff;
+    position: absolute;
+    z-index: 999;
+    box-shadow: 2px 2px 7px -4px #000;
+    visibility: hidden;
+  }
+  .navabar_HD .main-menu ul li .nav-sub ul li {
+    float: none;
+    border-bottom: 1px dotted #f7f7f7;
+  }
+  .navabar_HD .main-menu ul li .nav-sub ul li .nav-sub-list-box a {
+    color: #444;
+  }
+  .navabar_HD .main-menu ul li .nav-sub ul li h2 {
+    font-size: 13px;
+    margin-bottom: 0;
+  }
+  .navabar_HD .main-menu ul li:hover > .nav-sub ul {
+    visibility: visible;
+  }
+  .navabar_HD .main-menu ul li.active a {
+    background: rgba(0, 0, 0, 0.28);
+  }
+  .navabar_HD .main-menu ul li a {
+    padding: 10px 20px;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+  }
+  .navabar_HD .main-menu ul li a:hover {
+    background: rgba(73, 73, 73, 0.34);
+  }
+  @media (max-width: 767px) {
+    .navabar_HD .main-menu ul li a {
+      padding: 10px;
+      font-size: 12px;
+    }
+  }
+  @media (max-width: 543px) {
+    .navabar_HD .main-menu ul li {
+      float: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.26);
+    }
+  }
+  
