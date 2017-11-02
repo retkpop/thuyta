@@ -13,10 +13,12 @@
         <script src="js/tether.min.js" type="text/javascript"></script>
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
         <script src="js/owl.carousel.min.js" type="text/javascript"></script>
-        
+        <script src="js/jquery.touchSwipe.min.js" type="text/javascript"></script>
+        <script src="js/jquery.slideandswipe.min.js" type="text/javascript"></script>
         <link href="style.css" rel="stylesheet" type="text/css"/>
     </head>
-    <body>
+    <body class="index">
+        <div class="ssm-overlay ssm-toggle-nav"></div>
         <section class="topMain">
             <div class="header">
                 <div class="container-fluid">
@@ -40,6 +42,9 @@
                             <a href="" class="scIcon youtube"></a>
                         </div>
                     </div>
+                </div>
+                <div class="menuTop">
+                    <div class="mb-menu mb-menu ssm-toggle-nav"></div>
                 </div>
             </div>
             <div class="slider">
@@ -132,10 +137,210 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3"></div>
+                    <div class="col-md-3">
+                        <div class="GroupSvSearch">
+                            <div class="heading">
+                                Tìm sản phẩm
+                            </div>
+                            <div class="FormSearchProduct">
+                                <label>Gõ từ khóa hoặc mã để tìm</label>
+                                <div class="inputGF">
+                                    <input type="text" class="form-text" />
+                                    <button type="submit" class="btnSubmitSearch"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+        <section class="contact">
+            <div class="container">
+                <div class="imgContact">
+                    <img src="images/contact.png" class="img-fluid" />
+                </div>
+                <div class="nct hidden-md-down">
+                    <img src="images/nct.png" class="img-fluid" />
+                </div>
+            </div>
+        </section>
+        <section class="formContact">
+            <div class="leftG">
+                <div class="teamGroup">
+                    <div class="item gd">Giám đốc</div>
+                    <div class="item mk">MARKETING</div>
+                    <div class="item tc">Tài chính kế toán</div>
+                    <div class="item dv">Dịch vụ</div>
+                    <div class="item kd">Kinh doanh</div>
+                    <div class="item hc">Hành chính thầu hợp đồng</div>
+                </div>
+            </div>
+            <div class="rightG">
+                <div class="rightForm">
+                    <div class="namecty">Công ty TNHH thiết bị y tế Hải Nguyên</div>
+                    <div class="address">37 Lê Quốc Hưng, p12, q4, TPHCM</div>
+                    <div class="emailAdress">Support@hainguyenmedical.vn</div>
+                    <div class="phoneContact">84 28 36207588 - Fax: +84 28 36207587 </div>
+                    <div class="taxPhone">0314150609</div>
+                </div>
+                <div class="nameCt">Liên hệ với chúng tôi</div>
+                <div class="formInput">
+                    <div class="form-group">
+                        <label>Họ & tên *</label>
+                        <input type="text" class="form-text" />
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label>Email *</label>
+                                <input type="text" class="form-text" />
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Điện thoại *</label>
+                                <input type="text" class="form-text" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Địa chỉ *</label>
+                        <input type="text" class="form-text" />
+                    </div>
+                    <div class="form-group">
+                        <label>Công ty *</label>
+                        <input type="text" class="form-text" />
+                    </div>
+                    <div class="form-group">
+                        <label>Nội dung</label>
+                        <textarea class="form-text" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btnSubmit">GỬI</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="NewHome">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="listNew">
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-md-6 push-md-6">
+                                        <div class="thumbnail">
+                                            <a href="">
+                                                <img src="images/demo.jpg" class="img-fluid" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 pull-md-6">
+                                        <div class="info">
+                                            <div class="title"><h3><a href="">Casual Outfit And Vintage Bicycle</a></h3></div>
+                                            <div class="timePost">MAY 15, 2016</div>
+                                            <div class="excerpt">More off this less hello salamander lied porpoise much over tightly circa horse taped so innocuously outside crud mightily rigorous negative one ....</div>
+                                            <div class="readmore"><a href="">Chi tiết</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-md-6 push-md-6">
+                                        <div class="thumbnail">
+                                            <a href="">
+                                                <img src="images/demo.jpg" class="img-fluid" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 pull-md-6">
+                                        <div class="info">
+                                            <div class="title"><h3><a href="">Casual Outfit And Vintage Bicycle</a></h3></div>
+                                            <div class="timePost">MAY 15, 2016</div>
+                                            <div class="excerpt">More off this less hello salamander lied porpoise much over tightly circa horse taped so innocuously outside crud mightily rigorous negative one ....</div>
+                                            <div class="readmore"><a href="">Chi tiết</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-md-6 push-md-6">
+                                        <div class="thumbnail">
+                                            <a href="">
+                                                <img src="images/demo.jpg" class="img-fluid" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 pull-md-6">
+                                        <div class="info">
+                                            <div class="title"><h3><a href="">Casual Outfit And Vintage Bicycle</a></h3></div>
+                                            <div class="timePost">MAY 15, 2016</div>
+                                            <div class="excerpt">More off this less hello salamander lied porpoise much over tightly circa horse taped so innocuously outside crud mightily rigorous negative one ....</div>
+                                            <div class="readmore"><a href="">Chi tiết</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="sidebar">
+                            <div class="row">
+                                <div class="col-lg-12 col-sm-6">
+                                    <div class="newEvent group">
+                                        <div class="heading"><h3>Tin tức sự kiện</h3></div>
+                                        <div class="listPost">
+                                            <ul>
+                                                <li>
+                                                    <div class="title"><h4><a href="">The Best Hairstyle Ideas</a></h4></div>
+                                                    <div class="timePost">MAY 15, 2016</div>
+                                                </li>
+                                                <li>
+                                                    <div class="title"><h4><a href="">A Calm Comes Over The Lake This Month</a></h4></div>
+                                                    <div class="timePost">MAY 15, 2016</div>
+                                                </li>
+                                                <li>
+                                                    <div class="title"><h4><a href="">The Best Hairstyle Ideas</a></h4></div>
+                                                    <div class="timePost">MAY 15, 2016</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="viewAll"><a href="">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-sm-6">
+                                    <div class="newEvent group">
+                                        <div class="heading"><h3>TIN TỨC SẢN PHẨM</h3></div>
+                                        <div class="listPost">
+                                            <ul>
+                                                <li>
+                                                    <div class="title"><h4><a href="">The Best Hairstyle Ideas</a></h4></div>
+                                                    <div class="timePost">MAY 15, 2016</div>
+                                                </li>
+                                                <li>
+                                                    <div class="title"><h4><a href="">A Calm Comes Over The Lake This Month</a></h4></div>
+                                                    <div class="timePost">MAY 15, 2016</div>
+                                                </li>
+                                                <li>
+                                                    <div class="title"><h4><a href="">The Best Hairstyle Ideas</a></h4></div>
+                                                    <div class="timePost">MAY 15, 2016</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="viewAll"><a href="">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="container">
+                <div class="copyright">© Copyright 2017 Hai Nguyen Medical | All Rights Reserved.</div>
+            </div>
+        </footer>
         <script src="js/main.js" type="text/javascript"></script>
     </body>
 </html>

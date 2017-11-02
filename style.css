@@ -17,6 +17,14 @@ body {
     color: #444;
     font-size: 14px;
 }
+.ssm-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.62);
+  z-index: 99;
+  display: none;
+}
 .swiss {
     font-family: 'Conv_UTM Swiss Condensed';
 }
@@ -24,15 +32,26 @@ body {
     font-family: 'Conv_UTM Swiss CondensedBold';
 }
 .header {
-    position: absolute;
-    top: 0;
-    z-index: 999;
-    width: 100%;
-    padding: 20px 0;
+  position: absolute;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  padding: 20px 0;
+}
+.product .header, .single .header {
+  background: #1f64a9;
+}
+.product .mainBody, .single .mainBody {
+  padding-top: 110px;
 }
 .header .main-header .logo {
     float: left;
     margin-right: 150px;
+}
+@media (max-width: 1320px) {
+  .header .main-header .logo {
+    margin-right: 10px;
+  }
 }
 .header .main-header .navabar_HD {
     float: left;
@@ -43,10 +62,23 @@ body {
   position: relative;
   padding: 13px 0;
 }
+@media (max-width: 1199px) {
+  .header .main-header .socialHD {
+    float: right;
+    position: absolute;
+    right: 30px;
+  }
+}
+@media (min-width: 1090px) and (max-width: 1199px) {
+  .header .main-header .socialHD {
+    display: none;
+  }
+}
 .socialHD .scIcon {
   position: absolute;
   width: 45px;
   height: 45px;
+  right: 0;
   font-size: 22px;
   line-height: normal;
   padding: 10px 15px;
@@ -59,7 +91,7 @@ body {
   color: #fea519 !important;
 }
 .socialHD .facebook {
-  left: -60px;
+  left: -110px;
 }
 .socialHD .youtube {
   padding: 10px;
@@ -72,19 +104,39 @@ body {
   content: '\f16a';
   font-family: 'FontAweSome';
 }
-
+@media (max-width: 420px) {
+  .header .main-header .socialHD {
+    float: right;
+    position: absolute;
+    top: 80px;
+    right: 0;
+  }
+  .socialHD .scIcon {
+    width: 30px;
+    height: 30px;
+    padding: 7px 10px;
+    font-size: 14px;
+  }
+  .socialHD .facebook {
+      left: -80px;
+  }
+  .socialHD .youtube {
+      padding: 7px;
+      right: 10px;
+  }
+}
   @media (max-width: 543px) {
     .navabar_HD .main-menu {
       display: inline-block;
       background: #4f4f4f;
-      background: -webkit-linear-gradient(left, rgba(255, 68, 0, 0.81) 10%, #2bae00 100%);
-      background: -moz-linear-gradient(left, rgba(255, 68, 0, 0.81) 10%, #2bae00 100%);
-      background: -o-linear-gradient(left, rgba(255, 68, 0, 0.81) 10%, #2bae00 100%);
-      background: -ms-linear-gradient(left, rgba(255, 68, 0, 0.81) 10%, #2bae00 100%);
-      background: linear-gradient(left, rgba(255, 68, 0, 0.81) 10%, #2bae00 100%);
+      background: -webkit-linear-gradient(left, rgba(19, 95, 144, 0.94) 10%, rgba(132, 125, 117, 0.89) 100%);
+      background: -moz-linear-gradient(left, rgba(19, 95, 144, 0.94) 10%, rgba(132, 125, 117, 0.89) 100%);
+      background: -o-linear-gradient(left, rgba(19, 95, 144, 0.94) 10%, rgba(132, 125, 117, 0.89) 100%);
+      background: -ms-linear-gradient(left, rgba(19, 95, 144, 0.94) 10%, rgba(132, 125, 117, 0.89) 100%);
+      background: linear-gradient(left, rgba(19, 95, 144, 0.94) 10%, rgba(132, 125, 117, 0.89) 100%);
       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='rgba(255, 68, 0, 0.81)', endColorstr='rgb(43, 174, 0)', GradientType=1);
       position: fixed;
-      top: 35px;
+      top: 0;
       left: 0;
       z-index: 999;
       transform: translate(-280px, 0);
@@ -95,11 +147,6 @@ body {
     padding-left: 0;
     margin: 0;
     list-style: none;
-  }
-  @media (max-width: 543px) {
-    .navabar_HD .main-menu ul {
-      display: inline-block;
-    }
   }
   .navabar_HD .main-menu ul li {
     float: left;
@@ -178,16 +225,39 @@ body {
       font-size: 12px;
     }
   }
-  @media (max-width: 543px) {
-    .navabar_HD .main-menu ul li {
-      float: none;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.26);
-    }
-  }
   .main-header {
     max-width: 1480px;
     margin: 0 auto;
   }
+  .mb-menu {
+    display: none;
+    cursor: pointer;
+  }
+  .mb-menu::before {
+      content: '\f0c9';
+      font-family: FontAwesome;
+      font-size: 20px;
+      line-height: normal;
+      color: #fff;
+      cursor: pointer;
+      padding: 5px 0;
+      display: block;
+  }
+@media (max-width: 543px){
+    .menuTop {
+      clear: left;
+      padding-top: 20px;
+    }
+    .mb-menu {
+        display: block;
+        left: 0;
+        padding: 3px 15px;
+        background: #4a4a4a;
+    }
+    .header {
+      padding-bottom: 0;
+    }
+}
   .navabar_HD .main-menu ul li.active a {
     color: #fea519;
     font-weight: bold;
@@ -207,7 +277,7 @@ body {
     position: absolute;
     right: 0;
     top: 50%;
-    margin-top: -16px;
+    margin-top: -16px !important;
     padding: 5px 15px;
     border-radius: 0;
     margin: 0;
@@ -225,6 +295,7 @@ body {
     bottom: 0;
     padding: 16px 30px;
     width: 100%;
+    left: 0;
     background: rgba(31, 100, 169, 0.63);
   }
   .groupSerch .labelS {
@@ -262,6 +333,41 @@ body {
     cursor: pointer;
     outline: none;
   }
+  @media (max-width: 1199px) {
+    .groupSerch .labelS {
+      font-size: 20px;
+      padding: 15px 0;
+    }
+  }
+  @media (max-width: 996px) {
+    .groupSerch .labelS {
+      width: 30%;
+    }
+    .groupSerch .formSearch {
+      width: 70%;
+    }
+    .navabar_HD .main-menu ul li {
+      padding: 0 20px;
+    }
+  }
+  @media (max-width: 767px) {
+    .header {
+      position: relative;
+      background: #135f90;
+      overflow: hidden;
+    }
+    .navabar_HD .main-menu ul li {
+      padding: 0 10px;
+    }
+    .groupSerch .labelS {
+      font-size: 15px;
+    }
+  }
+  @media (max-width: 543px) {
+    .navabar_HD .main-menu ul li {
+      padding: 0 30px;
+    }
+  }
   .btnSearch:hover {
     color: #fea519;
   }
@@ -293,4 +399,740 @@ body {
     display: block;
     padding: 5px 0;
     font-size: 15px;
+  }
+  @media (max-width: 543px) {
+    .service .GroupSv {
+      margin-bottom: 30px;
+    }
+    .service .GroupSv .iconSv {
+      display: inline-block;
+      float: left;
+      margin-right: 15px;
+    }
+    .GroupSv .heading {
+      border-bottom: none;
+      overflow: hidden;
+      position: relative;
+      padding: 10px 0 0;
+      margin-bottom: 0;
+    }
+    .GroupSv .heading::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background: #fff;
+      left: 0;
+      bottom: 30px;
+    }
+  }
+  @media (max-width: 340px) {
+    .GroupSv .heading {
+      font-size: 14px;
+    }
+  }
+  .contact {
+    overflow: hidden;
+    background: url('images/bgcontact.jpg') center center no-repeat;
+    background-size: 100% 100%;
+  }
+  .contact .imgContact {
+    float: left;
+    padding: 70px 0;
+  }
+  .contact .nct {
+    float: right;
+  }
+  .formContact {
+    background: #7cc576;
+    position: relative;
+  }
+  .formContact .leftG {
+    width: 40%;
+    float: left;
+    background: #7cc576;
+    padding-right: 40px;
+  }
+  @media (max-width: 767px) {
+    .formContact .leftG {
+      display: none;
+    }
+  }
+  .formContact .rightG {
+    background: url('images/bgFormContact.jpg') center left no-repeat;
+    overflow: hidden;
+    padding: 35px 20px;
+    background-size: 100% 100%;
+  }
+  .formContact .rightG .rightForm {
+    line-height: 30px;
+    font-size: 17px;
+    margin-bottom: 20px;
+    max-width: 720px;
+  }
+  .formContact .rightG .rightForm .address::before {
+    content: '\f041';
+    font-family: 'FontAweSome';
+    padding-right: 10px;
+  }
+  .formContact .rightG .rightForm .emailAdress::before {
+    content: '\f0e0';
+    font-family: 'FontAweSome';
+    padding-right: 10px;
+  }
+  .formContact .rightG .rightForm .phoneContact::before {
+    content: '\f098';
+    font-family: 'FontAweSome';
+    padding-right: 10px;
+  }
+  .formContact .rightG .rightForm .taxPhone::before {
+    content: '\f095';
+    font-family: 'FontAweSome';
+    padding-right: 10px;
+  }
+  .formContact .rightG .namecty {
+    font-size: 17px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .formContact .rightG .nameCt {
+    text-transform: uppercase;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .formContact .teamGroup {
+    text-align: right;
+    color: #fff;
+    padding: 20px 20px 0 0;
+  }
+  .formContact .teamGroup .item {
+    padding: 32px 95px 32px 0;
+    position: relative;
+    font-size: 15px;
+    text-transform: uppercase;
+    margin: 20px 0;
+  }
+  .formContact .teamGroup .item::after {
+    content: '';
+    position: absolute;
+    width: 76px;
+    height: 75px;
+    right: 0;
+    top: 0;
+    background-size: 100% 100%;
+  }
+  .formContact .teamGroup .item.gd::after {
+    background: url('images/icon/gd.png') center center no-repeat;
+  }
+  .formContact .teamGroup .item.mk::after {
+    background: url('images/icon/mk.png') center center no-repeat;
+  }
+  .formContact .teamGroup .item.tc::after {
+    background: url('images/icon/tc.png') center center no-repeat;
+  }
+  .formContact .teamGroup .item.dv::after {
+    background: url('images/icon/dv.png') center center no-repeat;
+  }
+  .formContact .teamGroup .item.kd::after {
+    background: url('images/icon/kd.png') center center no-repeat;
+  }
+  .formContact .teamGroup .item.hc::after {
+    background: url('images/icon/hc.png') center center no-repeat;
+  }
+  .formContact .formInput {
+    max-width: 720px;
+  }
+  .formContact .formInput .form-text {
+    width: 100%;
+    outline: none;
+    border: 1px solid #7cc576;
+    border-radius: 5px;
+    padding: 5px 20px;
+    background: none;
+  }
+  .formContact .formInput label {
+    margin-bottom: 0;
+  }
+  .btnSubmit {
+    padding: 5px 20px;
+    background: #7cc576;
+    font-size: 15px;
+    color: #fff;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    width: 95px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+  }
+  .btnSubmit:focus {
+    outline: none;
+  }
+  .btnSubmit:hover {
+    background: #2ca123;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+  }
+  .NewHome {
+    background: url("images/bgnewhome.jpg") center center no-repeat;
+    background-size: 100% 100%;
+    font-size: 15px;
+    padding: 50px 0;
+    border-top: 2px solid #fff;
+  }
+  .NewHome .item {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #fff;
+  }
+  @media (min-width: 543px) and (max-width: 767px) {
+    .NewHome .item {
+      width: 50%;
+      float: left;
+      padding: 15px;
+      border-bottom: none;
+    }
+    .NewHome .item:first-child {
+      width: 100%;
+    }
+  }
+  .NewHome .item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  .NewHome .item .info .title h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .NewHome .item .info .title h3 a {
+    color: #444;
+    text-decoration: none;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+  }
+  .NewHome .item .info .title h3 a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 2px #437fba;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+  }
+  .NewHome .item .info .timePost {
+    margin-bottom: 10px;
+  }
+  .NewHome .item .info .excerpt {
+    margin-bottom: 15px;
+  }
+  .NewHome .item .info .readmore a {
+    font-size: 16px;
+    padding: 5px 25px;
+    text-decoration: none;
+    color: #1f64a9;
+    border: 1px solid;
+    border-radius: 20px;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+  }
+  .NewHome .item .info .readmore a:hover {
+    color: #ffffff;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    text-shadow: 0 0 2px #437fba;
+  }
+  .sidebar .group {
+    margin-bottom: 20px;
+    clear: left;
+    overflow: hidden;
+  }
+  .sidebar .group .heading {
+    margin-bottom: 5px;
+  }
+  .sidebar .group .heading h3 {
+    padding: 8px 20px;
+    margin-bottom: 0;
+    line-height: normal;
+    font-size: 15px;
+    color: #fff;
+    background: #1f64a9;
+    text-transform: uppercase;
+    border-radius: 5px;
+  }
+  .sidebar .group .viewAll {
+    float: right;
+    position: relative;
+  }
+  .sidebar .group .viewAll a {
+    color: #444;
+    text-decoration: none;
+  }
+  .sidebar .group .viewAll::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: #444;
+  }
+  .sidebar .group .viewAll::after {
+    position: absolute;
+    content: '';
+    left: 50%;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    background: #b3ff00;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    box-shadow: 0 0 3px #fff;
+  }
+  .sidebar .group .viewAll:hover::after {
+    left: 0;
+    width: 100%;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+  }
+  .sidebar .group .listPost ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+  .sidebar .group .listPost ul li {
+    padding: 15px 0 15px 25px;
+    position: relative;
+  }
+  .sidebar .group .listPost ul li::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    background: #1f64a9;
+    border-radius: 100%;
+    left: 0;
+    top: 19px;
+  }
+  .sidebar .group .listPost ul li::after {
+    content: "";
+    width: 2px;
+    height: 0px;
+    position: absolute;
+    background: #1f64a9;
+    left: 3px;
+    top: 19px;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+  }
+  .sidebar .group .listPost ul li:hover::after {
+    height: 30px;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+  }
+  .sidebar .group .listPost ul li:last-child {
+    padding-bottom: 0;
+  }
+  .sidebar .group .listPost .title h4 {
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+  .sidebar .group .listPost .title h4 a {
+    color: #444;
+    text-decoration: none;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+  }
+  .sidebar .group .listPost .title h4 a:hover {
+    color: #fff;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+  }
+  footer {
+    padding: 50px 0;
+    background: #444;
+    color: #fff;
+    text-align: center;
+    border-top: 2px solid #fff;
+  }
+  @media (max-width: 767px) {
+    .NewHome .listNew {
+      margin-bottom: 20px;
+    }
+    .NewHome .item .title {
+      padding: 10px 0 0;
+    }
+    .NewHome .item .info .title h3 {
+      font-size: 15px;
+    }
+  }
+  @media (max-width: 991px) {
+    .sidebar {
+      clear: left;
+      margin-top: 30px;
+    }
+  }
+  .GroupSvSearch .heading {
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .FormSearchProduct {
+    padding: 15px;
+    border: 1px solid #fff;
+  }
+  .FormSearchProduct .form-text {
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    width: 100%;
+    border-radius: 5px;
+  }
+ .FormSearchProduct .inputGF {
+   position: relative;
+
+  }
+  .FormSearchProduct .inputGF .btnSubmitSearch {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: none;
+    color: #444;
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    font-size: 17px;
+  }
+  .mainBody .headingTop {
+    padding: 50px 0;
+    background: url("images/bgheading.jpg") center center no-repeat;
+    background-size: 100% 100%;
+  }
+  .mainBody .headingTop .title {
+    text-align: center;
+  }
+  .mainBody .headingTop h1 {
+    font-size: 30px;
+    color: #1f64a9;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .tabar {
+    overflow: hidden;
+    margin-bottom: 30px;
+  }
+  .tabar .listTabar ul {
+    padding-left: 0;
+    list-style: none;
+  }
+  .tabar .listTabar ul li {
+    float: left;
+    padding: 0 15px;
+    position: relative;
+  }
+  .tabar .listTabar ul li:first-child {
+    padding-left: 0;
+  }
+  .tabar .listTabar ul li::after {
+    content: "\f105";
+    font-family: "FontAweSome";
+    position: absolute;
+    right: 0;
+    top: 5px;
+    font-weight: bold;
+    color: #1f64a9;
+  }
+  .tabar .listTabar ul li:last-child::after {
+    display: none;
+  }
+  .tabar .listTabar ul li a {
+    display: block;
+    padding: 5px 15px;
+    background: #ddd;
+    border-radius: 5px;
+    color: #1f64a9;
+    font-weight: bold;
+  }
+  .contentProduct {
+    clear: left;
+  }
+  .contentProduct table.productS th, .contentProduct table.productS td {
+    border: 1px solid #ddd;
+    max-width: 240px;
+  }
+  .contentProduct table.productS td {
+    padding: 10px;
+  }
+  .contentProduct table.productS th {
+    background: #1f64a9;
+    color: #fff;
+    text-align: center;
+    padding: 5px 15px;
+  }
+  .contentProduct table.productS td:nth-child(2n+2) {
+    background: #ebebeb;
+  }
+  table.productS {
+    margin-bottom: 100px;
+  }
+  table.productS .btnBack {
+    float: left;
+    margin-right: 15px;
+  }
+  table.productS .btnBack a {
+    display: inline-block;
+    padding: 5px 15px;
+    color: #fff;
+    border-radius: 5px;
+    background: #1f64a9;
+    text-decoration:none;
+  }
+  table.productS .btnBack a:hover {
+    background: #2b75bf;
+  }
+  table.productS .thumbnail {
+    position: relative;
+    cursor: pointer;
+  }
+  table.productS .thumbnail::before {
+    content: "\f00e";
+    font-family: "FontAweSome";
+    position: absolute;
+    right: -7px;
+    bottom: -10px;
+    color: #1f64a9;
+  }
+  table.productS .btnSave {
+    display: inline-block;
+    padding: 5px 30px;
+    border-radius: 5px;
+    background: #feaf29;
+    cursor: pointer;
+  }
+  table.productS .btnSave:hover {
+    background: #ffa000;
+    color: #fff;
+  }
+  table.productS .btnSave::before {
+    content: "\f0c7";
+    font-family: "FontAweSome";
+    padding-right: 5px;
+  }
+  table.productS .btnAction {
+    float: right;
+  }
+  table.productS .soluong {
+    position: relative;
+    height: 75px;
+    text-align: center;
+  }
+  table.productS .soluong .btnSL {
+    position: relative;
+    left: 50%;
+    margin-left: -10px;
+    width: 20px;
+    height: 20px;
+    line-height: normal;
+    cursor: pointer;
+    margin-bottom: 5px;    
+  }
+  table.productS .soluong .btnSL:hover {
+    color: #ffa000;
+  }
+  table.productS .soluong .numbSL {
+    font-weight: bold;
+  }
+  table.productS .soluong .btnSL::before {
+    font-family: "FontAweSome";
+    font-size: 20px;
+  }
+  table.productS .soluong .btnSL.btnTang::before {
+    content: "\f055";
+  }
+  table.productS .soluong .btnSL.btnGiam::before {
+    content: "\f056";
+  }
+  table.productS .soluong .btnSL.btnGiam {
+    margin-top: 5px;
+  }
+  .selectProduct {
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+  }
+  .selectProduct::before {
+    content: "\f058";
+    font-family: "FontAweSome";
+    font-size: 20px;
+    color: #cac7c7;
+  }
+  .selectProduct.selected::before {
+    color: #1f64a9;
+  }
+  .center {
+    text-align: center;
+  }
+  .single .detail .headingPost {
+    margin: 20px 0;
+    position: relative;
+  }
+  .headingPost .title {
+    padding-right: 90px;
+  }
+  .headingPost .title h1 {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .headingPost .datePost {
+    position: absolute;
+    right: 0;
+    padding: 10px 20px;
+    top: 0;
+    color: #1f64a9;
+    font-weight: bold;
+    border: 1px solid;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 18px;
+    line-height: normal;
+  }
+  .headingPost .datePost year {
+    font-weight: normal;
+    display: block;
+  }
+  .single .content {
+    margin-bottom: 40px;
+  }
+  .single .content img {
+    margin: 20px auto;
+    display: table;
+  }
+  .tabAction {
+    overflow: hidden;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 45px;
+  }
+  .tabAction .dieuhuong {
+    width: 180px;
+    color: #1f64a9;
+  }
+  .tabAction .dieuhuong .postPrev {
+    float: left;
+    cursor: pointer;
+  }
+  .tabAction .dieuhuong .postPrev::after {
+    content: "\f137";
+    font-family: "FontAweSome";
+    padding-left: 5px;
+  }
+  .tabAction .dieuhuong .postNext {
+    float: right;
+    cursor: pointer;
+  }
+  .tabAction .dieuhuong .postNext::before {
+    content: "\f138";
+    font-family: "FontAweSome";
+    padding-right: 5px;
+  }
+  .tabAction .dieuhuong .postPrev:hover, .tabAction .dieuhuong .postNext:hover {
+    color: #ffa000;
+  }
+  .single .sidebar .group .listPost .title h4 a:hover {
+    color: #ffa000;
+  }
+  .single .sidebar .group .heading h3 {
+    font-weight: bold;
+  }
+  .contactForm.group .heading {
+    margin-bottom: 0;
+  }
+  .contactForm {
+    background: url("images/bgsidebar.jpg") center center repeat;
+    border-radius: 5px;
+    background-size: auto auto;
+  }
+  .contactForm .formCt {
+    padding: 15px;
+  }
+  .contactForm .formCt label {
+    margin-bottom: 0;
+    font-size: 15px;
+  }
+  .contactForm .formCt .form-text {
+    width: 100%;
+    border: 1px solid #1f64a9;
+    box-shadow: none;
+    outline: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+  }
+  .contactForm .btnSubmit {
+    background: #2064aa;
+  }
+  .contactForm .btnSubmit:hover {
+    background: #318ae6;
+  }
+  @media (max-width: 543px) {
+    .navabar_HD .main-menu ul li {
+      float: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.26);
+    }
+    .navabar_HD .main-menu ul {
+      display: inline-block;
+    }
+    .groupSerch {
+      position: relative;
+    }
+    .topMain .Search {
+      background: #2064aa;
+      overflow: hidden;
+      padding: 0 0 20px 0;
+    }
+    .groupSerch .labelS {
+        width: 100%;
+        padding: 0;
+    }
+    .groupSerch .formSearch {
+        width: 100%;
+    }
+    .groupSerch .formSearch .rSearch .form-text {
+        border-radius: 2px;
+        padding: 5px 30px;
+    }
+    .btnSearch {
+      top: 5px;
+      font-size: 17px;
+      padding: 5px 10px;
+    }
+  }
+  @media (max-width: 767px) {
+    .formContact .rightG, .contact, .NewHome {
+      background-size: auto 100%;
+    }
   }
